@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyWebsites</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Capture.JPG">
+</head>
+<body>
+
+<div class="transition slide is-active" id="boxy"></div>
+
+<div class="boxes" id="boxes">
+<!----------------------------------------------DISCORD------------------------------------------------------------->
+    <div class="box"  id="discord" style="top:2000px; animation-name:slideup;  animation-duration: 4s;">
+        <a href="https://discord.com/channels/@me"></a>
+        <div class="box-content"><img src="DISCORD.png" style="top:20%"></div>
+        <div class="box-border"></div>
+    </div>
+<!--------------------------------------------WHATSAPP--------------------------------------------------------------------------->
+    <div class="box" id="whatsapp" style="top:-2000px; animation-name:slidedown;      animation-duration: 5s;">
+        <div class="box-content"><img src="WHATSAPP.png"  style="top:20%"></div>
+        <div class="box-border"></div>
+    </div>
+<!---------------------------------------------9ANIME---------------------------------------------------------------------------->
+    <div class="box" id="9anime" style="animation-name:slideup; top:2000px;     animation-duration: 4s;">
+        <div class="box-content"><img src="9ANIME.png" style="left:25%; top:25%; width:10vh; height:10vh"></div>
+        <div class="box-border"></div>
+    </div>
+<!---------------------------------------------YOUTUBE---------------------------------------------------------------------------->
+    <div class="box" id="youtube" style="animation-name:slidedown; top:-2000px; animation-duration: 5s;">
+        <div class="box-content"><img src="YOUTUBE.png" style=" top: 14.5%; left:4%; height:15vh; width:19vh"></div>
+        <div class="box-border"></div>
+    </div>
+<!----------------------------------------------GMAIL----------------------------------------------------------------------->
+    <div class="box" id="gmail" style="animation-name:slideup; top:2000px;     animation-duration: 4s;">
+        <div class="box-content"><img src="C:\Users\tsast\OneDrive\Desktop\C++\HousePoints\GMAIL.png" style="top: 30%; left:30%; width:8vh; height:8vh"></div>
+        <div class="box-border"></div>
+    </div>
+<!----------------------------------------------SNAPCHAT----------------------------------------------------------------------------->
+    <div class="box" id="snapchat" style="animation-name:slidedown; top:-2000px; animation-duration: 5s;">
+        <div class="box-content"><img src="SNAPCHAT.png"  style="top:20%"></div>
+        <div class="box-border"></div>
+    </div>
+<!---------------------------------------------SCHOOL DIARY-------------------------------------------------------------------------->
+    <div class="box" id="schooldiary" style="animation-name:slideup; top:2000px;     animation-duration: 4s;">
+        <div class="box-content"><img src="SCHOOLDIARY.png" style="height:10vh; width:10vh; top:23%; left:25%" id="sd"></div>
+        <div class="box-border"></div>
+    </div>
+<!-----------------------------------------------FIREBASE--------------------------------------------------------------------->
+<div class="box" id="firebase" style="animation-name:slideup; top:2000px;     animation-duration: 5s;">
+    <div class="box-content"><img src="Firebase.png" style="width:8vh; height:10vh; margin-left:2vh; margin-top:-1.5vh"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slidedown; top:-2000px;     animation-duration: 6s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slideup; top:2000px;     animation-duration: 5s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slidedown; top:-2000px;     animation-duration: 6s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slideup; top:2000px;     animation-duration: 5s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slidedown; top:-2000px;     animation-duration: 6s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<div class="box" id="" style="animation-name:slideup; top:2000px;     animation-duration: 5s;">
+    <div class="box-content"></div>
+    <div class="box-border"></div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+</div>
+<div class="menu1" id="menu1">
+<div class="menu">
+    <p id="URL">Url Link:</p>
+    <input id="href" autofocus>
+</div>
+</div>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+    import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyCsEcR17ZN7jEWCYkrDmFBsgur4W323W5I",
+    authDomain: "mywebsites-c7752.firebaseapp.com",
+    projectId: "mywebsites-c7752",
+    storageBucket: "mywebsites-c7752.appspot.com",
+    messagingSenderId: "350443029906",
+    appId: "1:350443029906:web:805dfa315b2eac6b5ced4b",
+    measurementId: "G-SHMWNM5GQT"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log(app);
+    const db = getFirestore();
+
+    const handleOnMouseMove = e => { 
+        const { currentTarget: target } = e;
+
+        const rect = target.getBoundingClientRect(),
+            x = e.clientX - rect.left, //Mouse position X
+            y = e.clientY - rect.top; // Mouse position Y
+
+        target.style.setProperty("--mouse-x", `${x}px`);
+        target.style.setProperty("--mouse-y", `${y}px`);
+    }
+    for(const box of document.querySelectorAll(".box")) {   
+        box.onmousemove = e => handleOnMouseMove(e);
+    }
+
+    const transition = document.querySelector(".transition");
+
+    var box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14;
+    var ref = doc(db, "Website-HREF", "websites101")
+    
+    window.onload = async () => {
+        const docsnap = await getDoc(ref);
+    
+        if(docsnap.exists()) {
+        box1 = docsnap.data().Box1;
+        box2 = docsnap.data().Box2;
+        box3 = docsnap.data().Box3;
+        box4 = docsnap.data().Box4;
+        box5 = docsnap.data().Box5;
+        box6 = docsnap.data().Box6;
+        box7 = docsnap.data().Box7;
+        box8 = docsnap.data().Box8;
+        box9 = docsnap.data().Box9;
+        box10 = docsnap.data().Box10;
+        box11= docsnap.data().Box11;
+        box12= docsnap.data().Box12;
+        box13= docsnap.data().Box13;
+        box14= docsnap.data().Box14;
+        }
+        setTimeout(() => {
+            transition.classList.remove("is-active");
+        }, 1000)
+    }
+
+    document.getElementById("discord").addEventListener('click', e=> {
+        let target = e.target.href;  
+        setTimeout(() => {
+           window.location.href = box1;
+        }, 1000)
+    })
+    document.getElementById("whatsapp").addEventListener('click', e=> {
+        let target = e.target.href;   
+        setTimeout(() => {
+           window.location.href = box2;
+        }, 1000)
+    })
+    document.getElementById("9anime").addEventListener('click', e=> {
+        let target = e.target.href;       
+        setTimeout(() => {
+           window.location.href = box3;
+        }, 1000)
+    })
+    document.getElementById("youtube").addEventListener('click', e=> {
+        let target = e.target.href;       
+        setTimeout(() => {
+           window.location.href = box4;
+        }, 1000)
+    })
+    document.getElementById("gmail").addEventListener('click', e=> {
+        let target = e.target.href        
+        setTimeout(() => {
+           window.location.href = box5;
+        }, 1000)
+    })
+    document.getElementById("snapchat").addEventListener('click', e=> {
+        let target = e.target.href;        
+        setTimeout(() => {
+           window.location.href = box6;
+        }, 1000)
+    })
+    document.getElementById("schooldiary").addEventListener('click', e=> {
+        let target = e.target.href;       
+        setTimeout(() => {
+           window.location.href = box7;
+        }, 1000)
+    })
+    document.getElementById("firebase").addEventListener('click', e=> {
+        let target = e.target.href;       
+        setTimeout(() => {
+           window.location.href = box8;
+        }, 1000)
+    })
+
+    document.getElementById("boxes").addEventListener('click', function() {
+        document.getElementById("boxes").style.animationName = "slideup";
+        transition.classList.add("is-active");
+    })
+
+    document.getElementById("boxes").oncontextmenu = rightClick;
+
+    document.getElementById("MEN").addEventListener('click', function(){
+        document.getElementById("menu1").style.display = "none";
+    })
+
+    async function rightClick(e) {
+        e.preventDefault();
+        document.getElementById("menu1").style.display = "block";
+
+        const target = e.target.id;
+        if(target == "discord") {
+            document.getElementById("href").placeholder = box1;
+            document.getElementById("URL").innerText = "BOX1 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1:document.getElementById("href").value, 
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "whatsapp") {
+            document.getElementById("href").placeholder = box2;
+            document.getElementById("URL").innerText = "BOX2 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: document.getElementById("href").value,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "9anime") {
+            document.getElementById("href").placeholder = box3;
+            document.getElementById("URL").innerText = "BOX3 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: document.getElementById("href").value,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "youtube") {
+            document.getElementById("href").placeholder = box4;
+            document.getElementById("URL").innerText = "BOX4 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: document.getElementById("href").value,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "gmail") {
+            document.getElementById("href").placeholder = box5;
+            document.getElementById("URL").innerText = "BOX5 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: document.getElementById("href").value,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "snapchat") {
+            document.getElementById("href").placeholder = box6;
+            document.getElementById("URL").innerText = "BOX6 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: document.getElementById("href").value,
+                            Box7: box7,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "schooldiary") {
+            document.getElementById("href").placeholder = box7;
+            document.getElementById("URL").innerText = "BOX7 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: document.getElementById("href").value,
+                            Box8: box8,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+        if(target == "firebase") {
+            document.getElementById("href").placeholder = box8;
+            document.getElementById("URL").innerText = "BOX8 URL";
+            document.getElementById("href").addEventListener("keydown", async function(e) {
+                if(e.code == "Enter") {
+                    await setDoc (
+                        ref, {
+                            Box1: box1,
+                            Box2: box2,
+                            Box3: box3,
+                            Box4: box4,
+                            Box5: box5,
+                            Box6: box6,
+                            Box7: box7,
+                            Box8: document.getElementById("href").value,
+                            Box9: box9,
+                            Box10: box10,
+                            Box11: box11,
+                            Box12: box12,
+                            Box13: box13,
+                            Box14: box14
+                        }
+                    )
+                }
+            })
+        }
+
+    }
+
+</script>
+</body>
+</html>

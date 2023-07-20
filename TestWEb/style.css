@@ -1,0 +1,218 @@
+@font-face {
+    src: url(fonts/Dense-Regular.otf);
+    font-family: Dense;
+
+}
+
+body {
+    /* background: radial-gradient(
+        6000px circle at 50% 50%,
+        rgba(253, 167, 167, 0.201), 
+        transparent 40%
+    ); */
+    background-color: #861657;
+    background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);  
+    font-family: Dense;
+    overflow: hidden;
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    background-size: 200% 200%;
+    animation-name: color; 
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes color {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    width:80%;
+    gap: 15px;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+}
+
+.box {
+    width: 20vh;
+    height:20vh;
+    border: 1px solid rgba(255, 255, 255, 0.128);
+    background-color: rgba(255, 255, 255, 0.548);
+    border-radius: 7px;
+    position: relative;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+
+
+.box:hover::before ,
+.box:hover > .box-border{
+    opacity: 1;
+}
+
+.box:hover {
+}
+
+.box::before,
+.car > .card-border {
+    border-radius: inherit; 
+    content: "";
+    height:100%;
+    opacity: 0;
+    transition: opacity 500ms;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+}
+
+.box::before {
+    background: radial-gradient(
+        4000px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 178, 178, 0.705), 
+        transparent 40%
+    );
+    z-index: 3;
+}
+
+.box > .box-border {
+    background: radial-gradient(
+        3000px circle at var(--mouse-x) var(--mouse-y),
+        rgba(250, 186, 186, 0.841), 
+        transparent 40%
+    );
+    z-index: 3;
+}
+
+img {
+    position: relative;
+    left:20%;
+    top:35%;
+    width:12vh;
+    height:12vh;
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(0)
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes slidedown {
+    from {
+        transform: translateY(0)
+    }
+    to {
+        transform: translateY(2000px);
+    }
+}
+
+
+
+.box > .box-content {
+    background-color: rgb(0, 0, 0);
+    border-radius: inherit;
+    margin: 1px;
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    z-index: 2;
+    position: relative;
+}
+
+.transition {
+    background: radial-gradient(
+        8000px circle at 50% 50%,
+        #ffa69e, 
+        transparent 40%
+    );
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-out;
+}
+
+.transition.is-active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+button {
+    position:relative;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.431);
+}
+
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 5vh;
+    width: 20vh;
+    left:45%;
+    top:10%;
+    font-size: larger;
+    border-radius: 7px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    color:white;
+    text-align: center;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin:2px;
+}
+
+.menu1 {
+    display: none;
+}
+
+p {
+    margin: 0px;
+    margin-top: 2px;
+}
+
+.background {
+    width:100%;
+    height:100%;
+}
+
+
